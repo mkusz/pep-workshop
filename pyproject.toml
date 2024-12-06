@@ -34,7 +34,7 @@ testpaths = [
 pythonpath = [
     ".",
 ]
-addopts = "--tb=short"
+addopts = "--tb=short --junitxml=result.xml"
 markers = [
     "smoke: Some tests",
     "wip: Work in progress"
