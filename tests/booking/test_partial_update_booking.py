@@ -25,6 +25,12 @@ def test_update_names(booking_url, single_booking_with_id, token):
     with check:
         assert response.status_code == 200
 
+    observed_booking: Booking = Booking.model_validate(response.json())
+    print(f"\n{expected_booking}\n{observed_booking}")
+
+    with check:
+        assert observed_booking == expected_booking
+
     response: requests.Response = requests.get(url=f"{booking_url}/{single_booking_with_id.bookingid}")
 
     with check:
